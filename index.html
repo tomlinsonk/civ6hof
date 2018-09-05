@@ -1,0 +1,276 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="A social Hall of Fame for Civilization VI.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hall of Fame for Civilization VI</title>
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Friendly Chat">
+  <meta name="theme-color" content="#303F9F">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Friendly Chat">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#303F9F">
+
+  <!-- Tile icon for Win8 -->
+  <meta name="msapplication-TileColor" content="#3372DF">
+  <meta name="msapplication-navbutton-color" content="#303F9F">
+
+  <!-- Material Design Lite -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.orange-indigo.min.css">
+  <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- App Styling -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+<div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+  <!-- Header section containing logo -->
+  <header id="header-bar" class="mdl-layout__header mdl-color-text--white">
+    <div id="header-background"></div>
+    <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
+      <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop header-shadow">
+        <h2> Hall of Fame for Civilization VI</h2>
+      </div>
+      <div id="user-container">
+        <div id="username-container">
+          <div hidden class="header-shadow" id="user-name"></div>
+          <button hidden class="header-shadow mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" id="change-username">Change username</button>
+        </div>
+
+        <button hidden id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white header-shadow">
+          Log out
+        </button>
+        <button hidden id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white header-shadow">
+          <i class="material-icons">account_circle</i>Sign in with Google
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="mdl-layout__content mdl-color--grey-100" style="position: static;">
+     
+
+    <div id="all-wins-card-container" class="mdl-cell mdl-cell--12-col mdl-grid">
+      
+       <div id="hall-of-fame-card" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--6-col-tablet mdl-cell--6-col-desktop">
+        <h4 class="card-title">My Hall of Fame</h4>
+        <div hidden id="hall-of-fame-container" class="mdl-card__supporting-text mdl-color-text--grey-600">
+          <div id="hall-of-fame"></div>
+
+          <button id="add-win" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+            Add victory
+          </button>
+        </div>
+
+        <div hidden id="login-prompt-container">
+          <div id="login-prompt">
+            <div>
+              Sign in for your Hall of Fame.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="all-wins-card" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--6-col-tablet mdl-cell--6-col-desktop">
+        <h4 class="card-title">Recent Victories</h4>
+        <div id="all-wins-scroll" class="mdl-card__supporting-text mdl-color-text--grey-600">
+          <div id="all-wins"></div>
+        </div>
+      </div>
+
+      <div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">
+        <div class="mdl-snackbar__text"></div>
+        <button class="mdl-snackbar__action" type="button"></button>
+      </div>
+
+      <div id="new-victory-popup" class="modal">
+        <form id="new-victory-form" class="modal-content" action="#">
+          <div class="container">
+            <h4>New Victory</h4>
+            <p>Congratulations on your victory!</p>
+            <hr>
+            <label for="civ"><b>Leader</b></label>
+            <select name="civ" required>
+              <option value="Alexander">Alexander</option>
+              <option value="Amanitore">Amanitore</option>
+              <option value="Catherine_de_Medici">Catherine de Medici</option>
+              <option value="Chandragupta">Chandragupta</option>
+              <option value="Cleopatra">Cleopatra</option>
+              <option value="Cyrus">Cyrus</option>
+              <option value="Frederick_Barbarossa">Frederick Barbarossa</option>
+              <option value="Gandhi">Gandhi</option>
+              <option value="Genghis_Khan">Genghis Khan</option>
+              <option value="Gilgamesh">Gilgamesh</option>
+              <option value="Gitarja">Gitarja</option>
+              <option value="Gorgo">Gorgo</option>
+              <option value="Harald_Hardrada">Harald Hardrada</option>
+              <option value="Hojo_Tokimune">Hojo Tokimune</option>
+              <option value="Jadwiga">Jadwiga</option>
+              <option value="Jayavarman_VII">Jayavarman VII</option>
+              <option value="John_Curtin">John Curtin</option>
+              <option value="Lautaro">Lautaro</option>
+              <option value="Montezuma">Montezuma</option>
+              <option value="Mvemba_a_Nzinga">Mvemba a Nzinga</option>
+              <option value="Pedro_II">Pedro II</option>
+              <option value="Pericles">Pericles</option>
+              <option value="Peter">Peter</option>
+              <option value="Philip_II">Philip II</option>
+              <option value="Poundmaker">Poundmaker</option>
+              <option value="Qin_Shi_Huang">Qin Shi Huang</option>
+              <option value="Robert_the_Bruce">Robert the Bruce</option>
+              <option value="Saladin">Saladin</option>
+              <option value="Seondeok">Seondeok</option>
+              <option value="Shaka">Shaka</option>
+              <option value="Tamar">Tamar</option>
+              <option value="Teddy_Roosevelt">Teddy Roosevelt</option>
+              <option value="Tomyris">Tomyris</option>
+              <option value="Trajan">Trajan</option>
+              <option value="Victoria">Victoria</option>
+              <option value="Wilhelmina">Wilhelmina</option>
+              <option value="Mod">Mod</option>
+            </select>
+
+            <label for="score"><b>Score</b></label>
+            <input placeholder="Enter score" name="score" type="number" min="1" required>
+
+            <label for="type"><b>Victory Type</b></label>
+            <select name="type" required>
+              <option value="Score">Score</option>
+              <option value="Domination">Domination</option>
+              <option value="Cultural">Cultural</option>
+              <option value="Science">Science</option>
+              <option value="Religious">Religious</option>
+            </select>
+
+            <label for="turn"><b>Turn</b></label>
+            <input placeholder="Enter turn" name="turn" type="number" min="1" required>
+
+            <label for="difficulty"><b>Diffifulty</b></label>
+            <select name="difficulty" required>
+              <option value="Settler">Settler</option>
+              <option value="Cheiftain">Cheiftain</option>
+              <option value="Warlord">Warlord</option>
+              <option value="Prince" selected>Prince</option>
+              <option value="King">King</option>
+              <option value="Emperor">Emperor</option>
+              <option value="Immortal">Immortal</option>
+              <option value="Diety">Diety</option>
+            </select>
+
+            <label for="map"><b>Map</b></label>
+            <select name="map" required>
+              <option value="Continents">Continents</option>
+              <option value="Fractal">Fractal</option>
+              <option value="Inland Sea">Inland Sea</option>
+              <option value="Island Plates">Island Plates</option>
+              <option value="Pangea">Pangea</option>
+              <option value="Shuffle">Shuffle</option>
+              <option value="4-Leaf Clover">4-Leaf Clover</option>
+              <option value="6-Armed Snowflake">6-Armed Snowflake</option>
+              <option value="Earth">Earth</option>
+              <option value="True Start Location Earth">True Start Location Earth</option>
+              <option value="Archipelago">Archipelago</option>
+              <option value="East Asia">East Asia</option>
+              <option value="True Start Location East Asia">True Start Location East Asia</option>
+              <option value="Europe">Europe</option>
+              <option value="True Start Location Europe">True Start Location Europe</option>
+              <option value="Mod">Mod</option>
+            </select>
+
+            <label for="speed"><b>Speed</b></label>
+            <select name="speed" required>
+              <option value="Online">Online</option>
+              <option value="Quick">Quick</option>
+              <option value="Standard" selected>Standard</option>
+              <option value="Epic">Epic</option>
+              <option value="Marathon">Marathon</option>
+            </select>
+
+            <label for="size"><b>Size</b></label>
+            <select name="size" required>
+              <option value="Duel">Duel</option>
+              <option value="Tiny">Tiny</option>
+              <option value="Small">Small</option>
+              <option value="Standard" selected>Standard</option>
+              <option value="Large">Large</option>
+              <option value="Huge">Huge</option>
+            </select>
+
+            <label for="start-era"><b>Start Era</b></label>
+            <select name="start-era" required>
+              <option value="Ancient">Ancient</option>
+              <option value="Classical">Classical</option>
+              <option value="Medieval">Medieval</option>
+              <option value="Renaissance">Renaissance</option>
+              <option value="Industrial">Industrial</option>
+              <option value="Modern">Modern</option>
+              <option value="Atomic">Atomic</option>
+              <option value="Information">Information</option>
+            </select>
+
+            <label for="visibility"><b>Visibility</b></label>
+            <input type="radio" name="visibility" value="public" checked="checked"> Public<br>
+            <input type="radio" name="visibility" value="private"> Private<br>
+
+            <div class="clearfix">
+              <button type="button" onclick="document.getElementById('new-victory-popup').style.display='none'" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Cancel</button>
+              <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Save</button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+</body>
+
+<footer class="footer-basic-centered">
+      <p class="footer-company-name">GitHub</p>
+</footer>
+
+<!-- Import and configure the Firebase SDK -->
+<!-- These scripts are made available when the app is served or deployed on Firebase Hosting -->
+<!-- If you do not want to serve/host your project using Firebase Hosting see https://firebase.google.com/docs/web/setup -->
+<script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyA3cI4yOcawsT8pKPjWhwaUoD1lOz-m-lM",
+    authDomain: "halloffame-a5852.firebaseapp.com",
+    databaseURL: "https://halloffame-a5852.firebaseio.com",
+    projectId: "halloffame-a5852",
+    storageBucket: "halloffame-a5852.appspot.com",
+    messagingSenderId: "826573121069"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script src="/__/firebase/5.4.2/firebase-app.js"></script>
+<script src="/__/firebase/5.4.2/firebase-auth.js"></script>
+<script src="/__/firebase/5.4.2/firebase-database.js"></script>
+<script src="/__/firebase/5.4.2/firebase-storage.js"></script>
+<script src="/__/firebase/5.4.2/firebase-messaging.js"></script>
+<script src="/__/firebase/init.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/5.4.2/firebase-firestore.js"></script>
+
+<script src="scripts/main.js"></script>
+</html>

@@ -1,0 +1,350 @@
+html, body {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+}
+main, #all-wins-card, #hall-of-fame-card {
+  height: 100%;
+  margin-bottom: 3rem;
+}
+header {
+  position: relative;
+}
+#header-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: url('../images/banner.jpg') center top no-repeat;
+  background-size: cover;
+  -webkit-filter: brightness(40%); /* Safari 6.0 - 9.0 */
+  filter: brightness(40%);
+}
+.header-shadow {
+  text-shadow: 5px 5px 5px #000000;
+}
+.header-shadow-pic {
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px #222);
+}
+#username-container {
+  text-align: center;
+}
+#change-username {
+  display: static;
+  height: auto;
+  line-height: 1.5em;
+  color: white;
+  text-transform: none;
+}
+#all-wins-card-container {
+  height: calc(100% - 35px);
+  padding-bottom: 0;
+}
+#all-wins-card {
+  margin-top: 15px;
+}
+#hall-of-fame-card {
+  margin-top: 15px;
+}
+.mdl-layout__header-row span {
+  margin-left: 15px;
+  margin-top: 17px;
+}
+.mdl-grid {
+  max-width: 1024px;
+  margin: auto;
+}
+.material-icons {
+  font-size: 36px;
+  top: 8px;
+  position: relative;
+}
+.mdl-layout__header-row {
+  padding: 0;
+  margin: 0 auto;
+}
+.mdl-card__supporting-text {
+  width: auto;
+  height: 100%;
+}
+#all-wins, #hall-of-fame {
+  overflow-y: scroll;
+  display: flex;
+  height: calc(100% - 5px);  
+  flex-direction: column;
+}
+#hall-of-fame {
+  height: calc(100% - 40px);  
+}
+.card-title {
+  padding-left: 40px;
+}
+.win-container:first-of-type {
+  border-top-width: 0;
+}
+.win-container {
+  margin-bottom: 10px;
+  background: #f3f3f3;
+  padding: 5px 10px 10px 10px;
+  border-radius: 10px;
+  font-size: 1.2em;
+}
+.win-container .win-entry {
+  width: 100%;
+}
+.win-container:hover{
+  background: #e3e3e3;
+}
+.win-container .win-icon {
+  width: 50px;
+  height: auto;
+  float: left;
+}
+.win-container .leader-img {
+  width: 60px;
+  float: right;
+}
+.win-container .leader-img-container {
+  width: 15%;
+}
+.win-icon-container {
+  width: 100%;
+}
+.win-container .win-entry .civ {
+  display: table-cell;
+  text-align: right;
+  width: 20%;
+}
+.win-container .win-entry .title {
+  display: table-cell;
+  width: 15%;
+  font-style: italic;
+}
+.win-container .win-entry .score {
+  display: table-cell;
+  font-weight: bold;
+  width: 15%;
+}
+#hall-of-fame .win-entry .score {
+  font-size: 2em;
+  width: 30%;
+}
+#all-wins .win-entry .user {
+  width: 30%;
+}
+.win-container .date-label {
+  float: right;
+  margin-top: 20px;
+  margin-right: 5px;
+
+}
+.win-container .delete-win-entry {
+  width: 16px;
+  height: auto;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  opacity: 0.6;
+}
+
+.win-container .delete-win-entry:hover {
+  transform: scale(1.5, 1.5);
+}
+
+.mdl-card {
+  min-height: 0;
+}
+.mdl-card {
+  background: linear-gradient(white, #f9f9f9);
+  justify-content: space-between;
+}
+#user-container {
+  display: flex;
+  flex-direction: row;
+  top: 22px;
+  right: 0;
+  padding-left: 10px;
+  justify-content: flex-end;
+  padding: 5px;
+  margin-left: auto;
+}
+
+#user-container #user-pic {
+  top: -3px;
+  position: relative;
+  display: inline-block;
+  background-image: url('/images/profile_placeholder.png');
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 40px;
+  background-size: 40px;
+  border-radius: 20px;
+}
+#user-container #user-name {
+  font-size: 16px;
+  line-height: 36px;
+  padding-right: 10px;
+  padding-left: 20px;
+}
+
+.message img {
+  max-width: 300px;
+  max-height: 200px;
+}
+
+.mdl-textfield__label:after {
+  background-color: #0288D1;
+}
+.mdl-textfield--floating-label.is-focused .mdl-textfield__label {
+  color: #0288D1;
+}
+.mdl-button .material-icons {
+  top: -1px;
+  margin-right: 5px;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #f3f3f3;
+  padding-top: 50px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 100px auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 10px 10px 10px 10px;
+  width: 40%; /* Could be more or less, depending on screen size */
+}
+
+.modal-content label {
+  display: block;
+  margin-top: 10px;
+}
+
+.clearfix {
+  text-align: center;
+}
+
+.clearfix button {
+  margin-right: 20px;
+}
+
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+    width: 100%;
+  }
+}
+#login-prompt-container {
+  display: table;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+#login-prompt {
+  display: table-cell;
+  vertical-align: middle;
+  font-style: italic;
+  color: #555555;
+}
+
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    /*display: block;*/
+    white-space: pre-line;
+    visibility: hidden;
+    background-color: #222222;
+    color: #fff;
+    text-align: left;
+    padding: 5px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+ 
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+    width: 150px;
+    top: 110%;
+    left: 50%; 
+    margin-left: -75px;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;  /* At the top of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+#add-win {
+  margin-top: 10px;
+}
+
+
+.footer-basic-centered{
+  position: absolute;
+  bottom:0;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  font: normal 18px sans-serif;
+  padding: 10px;
+}
+
+.footer-basic-centered .footer-company-motto{
+  font-size: 24px;
+  margin: 0;
+}
+
+.footer-basic-centered .footer-company-name{
+  color:  #8f9296;
+  font-size: 14px;
+  margin: 0;
+}
+
+.footer-basic-centered .footer-links{
+  list-style: none;
+  font-weight: bold;
+  color:  #ffffff;
+  padding: 35px 0 23px;
+  margin: 0;
+}
+
+.footer-basic-centered .footer-links a{
+  display:inline-block;
+  text-decoration: none;
+  color: inherit;
+}
