@@ -8,6 +8,7 @@ Features:
 - Choose whether to make your victories public or private
 - Secure authentication and data storage with Google
 
+## Screenshot
 ![](screenshot.png)
 
 Made with FireBase.
