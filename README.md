@@ -4,7 +4,7 @@ I was disappointed that Civ VI has no Hall of Fame, so I made my own. Live link:
 
 Features:
 - Store and display your victories
-- See a real-time stream of other victories
+- See a real-time stream of all public victories
 - Choose whether to make your victories public or private
 - Secure authentication and data storage with Google
 
