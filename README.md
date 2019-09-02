@@ -1,5 +1,7 @@
 # Hall of Fame for Civilization VI
 
+EDIT: Some time after I made this, Civ IV released an update with a Hall of Fame. Yay!
+
 I was disappointed that Civ VI has no Hall of Fame, so I made my own. Live link: https://halloffame-a5852.firebaseapp.com.
 
 Features:
