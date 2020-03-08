@@ -1,8 +1,8 @@
 # Hall of Fame for Civilization VI
 
-EDIT: Some time after I made this, Civ IV released an update with a Hall of Fame. Yay!
+EDIT: Some time after I made this, Civ VI released an update with a Hall of Fame. I took down the FireBase app where this was hosted, so this repo is just for future reference.
 
-I was disappointed that Civ VI has no Hall of Fame, so I made my own. Live link: https://halloffame-a5852.firebaseapp.com.
+I was disappointed that Civ VI has no Hall of Fame, so I made my own.
 
 Features:
 - Store and display your victories
